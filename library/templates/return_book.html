@@ -1,0 +1,25 @@
+<!-- library/templates/return_book.html -->
+
+{% extends "base.html" %} {% block body %}
+<div class="container mt-5">
+  <!-- Added Bootstrap container class and margin top -->
+  <h1>Return Book</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <!-- Added Bootstrap form-group class -->
+      <label for="borrow_id">Select Borrowed Book:</label>
+      <select class="form-control" name="borrow_id">
+        <!-- Added Bootstrap form-control class -->
+        {% for borrow in borrowed_books %}
+        <option value="{{ borrow.id }}">
+          {{ borrow.book.title }} (Borrowed by {{ borrow.member.name }})
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Return" />
+    <!-- Added Bootstrap btn and btn-primary classes -->
+  </form>
+</div>
+{% endblock %}

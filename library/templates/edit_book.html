@@ -1,0 +1,19 @@
+<!-- library/templates/edit_book.html -->
+{% extends "base.html" %} {% block body %}
+
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        <i class="fa-solid fa-address-card fa-lg"></i> Edit Book
+      </div>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <input type="submit" value="Save" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

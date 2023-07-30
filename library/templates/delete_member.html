@@ -1,0 +1,9 @@
+<!-- library/templates/delete_member.html -->
+{% extends "base.html" %} {% block body %}
+<h1>Delete Member</h1>
+<p>Are you sure you want to delete "{{ member.name }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete" />
+</form>
+{ %endblock% }
